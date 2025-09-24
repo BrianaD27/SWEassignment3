@@ -12,4 +12,9 @@ public class MongoDBConnector
         // Create a MongoClient using the connection string
         var client = new MongoClient(connectionString);
     }
+
+    public bool MongoDBPing()
+    {
+        throw new NotImplementedException();
+    }
 }
