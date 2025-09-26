@@ -11,6 +11,12 @@ public class MongoDBConnector
     {
         // Create a MongoClient using the connection string
         var client = new MongoClient(connectionString);
+
+        // Default to "admin" database 
+        var url = new MongoUrl(connectionString);
+        var dbName = string.IsNullOrWhiteSpace(url.DatabaseName) ? "admin" : url.DatabaseName;
+
+        _database = client.GetDatabase(dbName);
     }
 
     public bool MongoDBPing()
