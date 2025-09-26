@@ -27,4 +27,13 @@ public class UnitTest1 : IAsyncLifetime
         Assert.True(connector.MongoDBPing());
     }
 
+    [Fact]
+    public void MongoDB_Ping_Returns_False()
+    {
+        var badConnection = "mongodb://localhost:29999";
+        var connector = new MongoDBConnector(badConnection);
+
+        Assert.False(connector.MongoDBPing());
+    }
+
 }
