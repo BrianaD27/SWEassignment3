@@ -1,4 +1,5 @@
 ﻿namespace MongoDBConnectorLibrary;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 public class MongoDBConnector
@@ -21,6 +22,20 @@ public class MongoDBConnector
 
     public bool MongoDBPing()
     {
-        throw new NotImplementedException();
+        try
+        {
+            // Sends the "ping" command to MongoDB
+            // The same as running { "ping": 1 } in the database
+            var result = _database.RunCommand<BsonDocument>(
+                new BsonDocument("ping", 1)
+            );
+
+            // MongoDB sends { "ok": 1 } if its running
+            return result["ok"] == 1;
+        }
+        catch
+        {
+            return false;
+        }
     }
 }

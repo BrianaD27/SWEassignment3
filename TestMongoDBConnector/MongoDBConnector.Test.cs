@@ -6,7 +6,7 @@ using Testcontainers.MongoDb;
 
 public class UnitTest1 : IAsyncLifetime
 {
-    private String _connectionString = string.Empty;
+    private string _connectionString = string.Empty;
     private readonly MongoDbContainer _mongo = new MongoDbBuilder().WithImage("mongo:7").Build();
 
     public async Task InitializeAsync()
