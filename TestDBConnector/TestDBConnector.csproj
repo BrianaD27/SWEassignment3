@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MongoDBConnectorLibrary\MongoDBConnectorLibrary.csproj" />
+    <ProjectReference Include="..\DBConnectorLibrary\DBConnectorLibrary.csproj" />
   </ItemGroup>
 
 </Project>

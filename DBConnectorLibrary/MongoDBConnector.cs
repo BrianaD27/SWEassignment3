@@ -1,4 +1,4 @@
-﻿namespace MongoDBConnectorLibrary;
+﻿namespace DBConnectorLibrary;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -20,7 +20,7 @@ public class MongoDBConnector : IdbConnector
         _database = client.GetDatabase(dbName);
     }
 
-    public bool MongoDBPing()
+    public bool Ping()
     {
         try
         {
