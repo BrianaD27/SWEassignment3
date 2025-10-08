@@ -1,8 +1,8 @@
-﻿namespace MongoDBConnectorLibrary;
+﻿namespace DBConnectorLibrary;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-public class MongoDBConnector
+public class MongoDBConnector : IdbConnector
 {
     // Field to hold the MongoDB CLient Instance 
     private readonly IMongoDatabase _database;
@@ -20,7 +20,7 @@ public class MongoDBConnector
         _database = client.GetDatabase(dbName);
     }
 
-    public bool MongoDBPing()
+    public bool Ping()
     {
         try
         {
