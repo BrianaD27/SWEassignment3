@@ -12,9 +12,22 @@ public class PostgresConnector : IdbConnector
         _connectionString = connectionString;
     }
 
-    // Implementation of 
+    // Implementation of Ping Method
     public bool Ping()
     {
-        throw new NotImplementedException();
+        try
+        {
+            // Tries to open connection to Postgres
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+
+            // If connection is Open them immediately close it and Return True
+            connection.Close();
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 }
