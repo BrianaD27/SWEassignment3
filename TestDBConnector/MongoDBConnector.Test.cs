@@ -5,7 +5,7 @@ using DBConnectorLibrary;
 using Testcontainers.MongoDb;
 using Xunit;
 
-public class UnitTest1 : IAsyncLifetime
+public class MongoDbTests : IAsyncLifetime
 {
     private string _connectionString = string.Empty;
     private readonly MongoDbContainer _mongo = new MongoDbBuilder().WithImage("mongo:7").Build();
