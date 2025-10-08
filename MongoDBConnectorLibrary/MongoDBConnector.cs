@@ -2,7 +2,7 @@
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-public class MongoDBConnector
+public class MongoDBConnector : IdbConnector
 {
     // Field to hold the MongoDB CLient Instance 
     private readonly IMongoDatabase _database;
