@@ -1,10 +1,11 @@
-﻿namespace TestMongoDBConnector;
+﻿namespace TestDBConnector;
 
 using System.Threading.Tasks;
-using MongoDBConnectorLibrary;
+using DBConnectorLibrary; 
 using Testcontainers.MongoDb;
+using Xunit;
 
-public class UnitTest1 : IAsyncLifetime
+public class MongoDbTests : IAsyncLifetime
 {
     private string _connectionString = string.Empty;
     private readonly MongoDbContainer _mongo = new MongoDbBuilder().WithImage("mongo:7").Build();
@@ -24,7 +25,7 @@ public class UnitTest1 : IAsyncLifetime
     public void MongoDB_Ping_Returns_True()
     {
         var connector = new MongoDBConnector(_connectionString);
-        Assert.True(connector.MongoDBPing());
+        Assert.True(connector.Ping());
     }
 
     [Fact]
@@ -33,7 +34,7 @@ public class UnitTest1 : IAsyncLifetime
         var badConnection = "mongodb://localhost:29999";
         var connector = new MongoDBConnector(badConnection);
 
-        Assert.False(connector.MongoDBPing());
+        Assert.False(connector.Ping());
     }
 
 }
